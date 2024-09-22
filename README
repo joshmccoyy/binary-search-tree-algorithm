@@ -1,6 +1,3 @@
-# binary-search-tree-algorithm
-A working binary search tree algorithm for reference. Created for CS1D data structures homework assignment.
-
 Special thank you to Keith Swartz for providing the C version of
 this project. I have ported this problem to the C++ language.
 
