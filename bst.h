@@ -115,4 +115,8 @@ const struct Node* tree_minimum(const struct Node* x);
  * pg. 319
  */
 const struct Node* tree_successor(const struct Node* x);
+
+// Basically an inorder_tree_walk but instead of printing the values, we store them in an array
+void fill_array(const struct Node* T, int* contents, size_t& i);
+
 #endif
