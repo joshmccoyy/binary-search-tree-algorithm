@@ -46,17 +46,20 @@ void tree_insert(struct Node** T, int value) { // Value == key
 	else
 		y->right = z;
 
-	
+
+	inorder_tree_walk(*T);
 
 	return;
 }
 
 void free_tree(struct Node* T) {
 
+	cout << "Freeing tree: " << endl;
+
 	if (T != NULL){
 		free_tree(T->left);
 		free_tree(T->right);
-		delete T;
+		free(T);
 	}
 
 	return;
@@ -64,33 +67,41 @@ void free_tree(struct Node* T) {
 
 size_t size_of(const struct Node* T) {
 
+	cout << "Size of tree: " << endl;
+
 	if (T == NULL)
 		return 0;
 	else
 		return 1 + size_of(T->left) + size_of(T->right);
 
-	return 0;
 }
+
 
 int* contents_of(const struct Node* T) {
 
 	// Create an array to store the contents of the tree
-	int *arr = new int[size_of(T)];
+	int *contents = new int[size_of(T)];
 
-	return NULL;
+	// Fill the array with the contents of the tree
+	size_t i = 0;
+	while (T != NULL){
+		contents[i] = T->value;
+		i++;
+		
+	}
+
+	return contents;
 }
 
 const struct Node* second_min_in(const struct Node* T) {
 
-	/* Returns a pointer to the node in the specified tree containing the second-
-	smallest element in the tree. If the tree has zero or one elements, this
- 	function returns NULL. */
+	// Returns a pointer to the node in the specified tree containing the second-
+	// smallest element in the tree. If the tree has zero or one elements, this
+ 	// function returns NULL. 
+	(void)T;
+	//tree_minimum(T)
 
-	if (T == NULL || T->left == NULL)
-
-	
-
-	return NULL;
+	return 0;
 }
 
 
@@ -100,10 +111,10 @@ void inorder_tree_walk(const struct Node *x){
 	
 	if ( x != NULL){
 		inorder_tree_walk(x->left);
-		std::cout << x->value << " ";
+		std::cout << x->value << std::endl;
 		inorder_tree_walk(x->right);
 	}
-	std::cout << std::endl;
+	
 	return;
 
 }
